@@ -37,6 +37,22 @@ void merge_sort(VI &nums, int a, int b) {
     merge(nums, a, b);
 }
 
+void comparison_methods() {
+    string s = "monkey";
+    sort(s.begin(), s.end());
+    cout << s << endl;
+
+    vector<pi> vpi;
+    vpi.PB(MP(1, 5));
+    vpi.PB(MP(2, 3));
+    vpi.PB(MP(1, 2));
+    sort(vpi.begin(), vpi.end());
+    cout << vpi << endl;
+
+    vector<tuple<int,int,int>> vti;
+    vti.PB({2, 1, 4});
+}
+
 
 int main() {
     init();
@@ -48,10 +64,11 @@ int main() {
     copy_n(SII<int>(cin), N, VBI(nums));
 
     // bubble_sort(nums, N);
-    merge_sort(nums, 0, N-1);
-
+    // merge_sort(nums, 0, N-1);
+    sort(nums.begin(), nums.end());
     cout << nums;
 
+    comparison_methods();
 
     return 0;
 }

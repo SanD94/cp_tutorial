@@ -64,6 +64,12 @@ ostream& operator<<(ostream& os, const vector<T> &v) {
     return os;
 }
 
+template<class T, class U>
+ostream& operator<<(ostream& os, const pair<T,U> &p) {
+    os << "(" << p.F << ", " << p.S << ")";
+    return os;
+}
+
 template<class T>
 void print(string var_name, T var, bool newline=false) {
     cout << var_name << ':' << (newline ? '\n' : ' ') << var; 

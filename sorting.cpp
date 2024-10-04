@@ -7,17 +7,48 @@ void bubble_sort(vector<int> &nums, int N) {
             swap(nums[j], nums[j+1]);
 }
 
+// N lg N memory allocation?
+void merge(VI &nums, int a, int b) {
+    int k = (a + b) / 2;
+    VI left(nums.begin() + a, nums.begin() + k + 1);
+    VI right(nums.begin() + k + 1, nums.begin() + b + 1);
+
+    VI::IT left_it = left.begin();
+    VI::IT right_it = right.begin();
+    VI::IT main_it = nums.begin() + a;
+
+    while(left_it != left.end() || right_it != right.end()) {
+        if (left_it == left.end()) *main_it++ = *right_it++;
+        else if (right_it == right.end()) *main_it++ = *left_it++;
+        else {
+            if (*right_it < *left_it) *main_it++ = *right_it++;
+            else *main_it++ = *left_it++;
+        }
+    }
+}
+
+// b included
+void merge_sort(VI &nums, int a, int b) {
+    if (a == b) return;
+
+    int k = (a + b) / 2;
+    merge_sort(nums, a, k);
+    merge_sort(nums, k+1, b);
+    merge(nums, a, b);
+}
+
 
 int main() {
     init();
 
     int N;
-    vector<int> nums;
+    VI nums;
 
     cin >> N;
-    copy_n(II<int>(cin), N, VBI(nums));
+    copy_n(SII<int>(cin), N, VBI(nums));
 
-    bubble_sort(nums, N);
+    // bubble_sort(nums, N);
+    merge_sort(nums, 0, N-1);
 
     cout << nums;
 

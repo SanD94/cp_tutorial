@@ -20,15 +20,20 @@ typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int,int> pi;
 
-#define F first
-#define S second
-#define PB push_back
-#define MP make_pair 
 #define REP(i, a, b) for (int i = (a); i < (b); i++)
 #define SQ(a) (a)*(a)
-#define II istream_iterator
-#define OI ostream_iterator
+// pair short form
+#define F first
+#define S second
+#define MP make_pair 
+// istream short forms
+#define SII istream_iterator
+#define SOI ostream_iterator
+// vector short forms
 #define VBI back_inserter
+#define VI vector<int>
+#define IT iterator
+#define PB push_back
 
 // utils
 #define DEBUG(name) print(#name, name)
